@@ -19,12 +19,14 @@ enum layer_names {
     _BASE,
     _LOWER,
     _RAISE,
-    _ADJUST
+    _ADJUST,
+    _MOUSE
 };
 
 #define LOWER  MO(_LOWER)
 #define RAISE  MO(_RAISE)
 #define ADJUST MO(_ADJUST)
+#define MOUSE MO(_MOUSE)
 
 #define HOME_A LCTL_T(KC_A)
 #define HOME_S LALT_T(KC_S)
@@ -40,27 +42,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     _______,
     KC_RSFT,  HOME_A,     HOME_S,     HOME_D,     KC_F,      KC_G,               KC_H,     KC_J,     HOME_K,     HOME_L,     HOME_SCLN,  KC_QUOT,
     _______,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  _______,
-                    KC_TAB,   LT(LOWER, KC_ENT),       _______,   LT(RAISE, KC_SPC), LT(ADJUST, KC_BSPC)
+                    LT(MOUSE, KC_TAB),   LT(LOWER, KC_ENT),       _______,   LT(RAISE, KC_SPC), LT(ADJUST, KC_BSPC)
   ),
   
   [_LOWER] = LAYOUT_reviung41(
     KC_ESC,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_DEL,
     KC_RSFT, KC_PIPE,  KC_GRV, KC_LPRN, KC_RPRN, KC_TILD,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_QUOT,
       _______, _______, _______, KC_LCBR, KC_RCBR, _______,                      KC_UNDS, KC_PLUS, KC_COMM,  KC_DOT, KC_SLSH, _______,
-                    KC_TAB,   LT(LOWER, KC_ENT),       _______,   _______, LT(ADJUST, KC_BSPC)
+                    LT(MOUSE, KC_TAB),   LT(LOWER, KC_ENT),       _______,   _______, LT(ADJUST, KC_BSPC)
   ),
   
   [_RAISE] = LAYOUT_reviung41(
     KC_ESC,  KC_1,     KC_2,     KC_3,     KC_4,      KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
     KC_RSFT, KC_PIPE,  KC_GRV, KC_LPRN, KC_RPRN, KC_TILD,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_QUOT,
       _______, _______, _______, KC_LCBR, KC_RCBR, _______,                      KC_UNDS, KC_PLUS, KC_COMM,  KC_DOT, KC_SLSH, _______,
-                    KC_TAB,   _______,       _______,   LT(RAISE, KC_SPC), LT(ADJUST, KC_BSPC)
+                    LT(MOUSE, KC_TAB),   _______,       _______,   LT(RAISE, KC_SPC), LT(ADJUST, KC_BSPC)
   ),
   
   [_ADJUST] = LAYOUT_reviung41(
       _______, KC_F1, KC_QUOT, KC_UP, KC_DQT, KC_F2,                      _______, _______, _______, _______, _______, _______,
       _______, _______, KC_LEFT, KC_DOWN, KC_RIGHT, KC_ESC,                      KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_QUOT, _______,
       _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, RESET,
-                    KC_TAB,   LT(LOWER, KC_ENT),       _______,   LT(RAISE, KC_SPC), _______
+                    LT(MOUSE, KC_TAB),   LT(LOWER, KC_ENT),       _______,   LT(RAISE, KC_SPC), _______
+  ),
+
+  [_MOUSE] = LAYOUT_reviung41(
+      _______, _______, _______, _______, _______, _______,                      _______, KC_MS_BTN1, KC_MS_UP, KC_MS_BTN2, _______, _______,
+      _______, _______, _______, _______, _______, _______,                      _______, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, _______, _______,
+      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
+                    _______,   LT(LOWER, KC_ENT),       _______,   LT(RAISE, KC_SPC), LT(ADJUST, KC_BSPC)
   ),
 };
