@@ -35,7 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_FORCE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
-
-#define MOUSEKEY_MOVE_DELTA 16
+#define MK_3_SPEED
+#define MK_MOMENTARY_ACCEL
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
